@@ -2,6 +2,7 @@ import App from 'next/app'
 import React from 'react'
 import withReduxStore from '../hoc/with-redux-store'
 import { Provider } from 'react-redux'
+
 class MyApp extends App {
   render() {
     console.log('********** ESTE ES EL RENDER DE APP *********');
@@ -13,4 +14,5 @@ class MyApp extends App {
     )
   }
 }
+
 export default withReduxStore(MyApp)

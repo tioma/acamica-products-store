@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 
-import { actions as productActions } from "../ducks/Products";
+import { actions as productActions } from '../ducks/Products';
 
 import ProductsContainer from '../components/Products/container';
 
@@ -17,6 +17,7 @@ const Home = () => (
 );
 
 Home.getInitialProps = async ({ reduxStore }) => {
+  // We do this to fill store state with products data
   const products = await reduxStore.dispatch(productActions.getProducts());
   console.log(products);
   return {};

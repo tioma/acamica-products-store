@@ -13,6 +13,7 @@ const types = {
 
 const actions = {
   getProducts: () => async (dispatch) => {
+    console.log('SE LLAMO A LA ACCION GETPRODUCTS')
     dispatch({ type: types.PRODUCTS_GET_REQUEST});
     const products = await productsService.getProducts();
 
