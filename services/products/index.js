@@ -19,7 +19,7 @@ const apiHeaders = {
     'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YTBjOWIxNmU0OTYwMDAwNjBkMDBhNjgiLCJpYXQiOjE1MTA3NzU1NzR9.3RXwYx0ehfQKYZfZ2XRcDr-jbSwmZI50T1l921fbU4E',
 }
 
-class productsService {
+class apiService {
   static async getUser() {
     const userResponse = await fetch(baseUrl + 'user/me', fetchParams('GET'))
     const userInfo = await userResponse.json()
@@ -56,4 +56,4 @@ class productsService {
   }
 }
 
-export default productsService;
+export default apiService;

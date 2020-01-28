@@ -1,4 +1,4 @@
-import productsService from '../../services/products';
+import apiService from '../../services/products';
 
 const defaultState = {
   products: [],
@@ -15,11 +15,16 @@ const actions = {
   getProducts: () => async (dispatch) => {
     console.log('SE LLAMO A LA ACCION GETPRODUCTS')
     dispatch({ type: types.PRODUCTS_GET_REQUEST});
-    const products = await productsService.getProducts();
+    try {
+      const products = await apiService.getProducts();
 
-    dispatch({ type: types.PRODUCTS_GET_SUCCESS, payload: products});
-    return products;
-  }
+      dispatch({ type: types.PRODUCTS_GET_SUCCESS, payload: products});
+      return products;
+    } catch(err) {
+      dispatch({ type: types.PRODUCTS_GET_FAILURE })
+      return err
+    }
+  },
 }
 
 const reducer = (state = defaultState, action) => {
